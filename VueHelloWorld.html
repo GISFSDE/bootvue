@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<!--DOCTYPE html 把数据绑定到 DOM 文本或 attribute，还可以绑定到 DOM 结构 -->
+<html>
+	<!--DOCTYPE html-->
+	<!-- 定义HTML文档开头部分,内容不会在浏览器窗口显示,包含文档元（meta）数据，配置信息等，是给浏览器看的; -->
+	<head>
+		<style>
+			.static{
+				color:red;
+			}
+			.static.active{
+				color:blue;
+			}
+			.act.textdanger{
+				color:blue;
+			}
+			.baz.foo{
+				color:blue;
+			}
+		</style>
+
+
+		<meta charset="utf-8">
+		<!-- http-equiv属性：相当于http的文件头作用，向浏览器传回一些有用的信息，正确显示网页内容，与之对应的属性值content，content中的内容是各个参数的变量值；
+2秒后跳转到对应的网址，注意引号
+<meta http-equiv="refresh" content="2;URL=https://www.mi.com"> #如果把URL和后面的内容去掉，就是2秒钟刷新一次，做了解;
+指定文档的编码类型
+<meta http-equiv="content-Type" charset=UTF8">
+告诉IE以最高级模式渲染文档
+<meta http-equiv="x-ua-compatible" content="IE=edge"> #edge是微软的一个全新的浏览器,其实就是告诉IE浏览器，你按照最高标准来渲染我的页面，做了解；
+name属性：主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于搜索引擎查找信息和分类信息用的；
+<meta name="keywords" content="meta总结,html meta,meta属性,meta跳转"> 
+ 关键字，也就是别人是可以通过这些关键字搜索到我的这个文章的，搜索引擎就是能够这个content内容来帮别人搜索到你的这个文档的,SEO就是专门做这些搜索优化的；
+<meta name="description" content="xxxxxpythonxxx学习">  #是对这个文档的描述，在百度一些内容的页面上，f12打开看看-->
+
+
+		<title>HelloVue</title>
+		<!--定义了网页标题，在浏览器标题栏显示-->
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<!-- 可见的网页主体内容 -->
+	<body>
+		<div id="htmlbase">
+			不加标签的纯文字也是可以在body中写的
+			<b>加粗</b>
+			<i>斜体</i>
+			<u>下划线</u>
+			<s>删除</s>
+
+			<p>段落标签</p> <!-- #独占一个段落 -->
+
+			<h1>标题1</h1>
+			<h2>标题2</h2>
+			<h3>标题3</h3>
+			<h4>标题4</h4>
+			<h5>标题5</h5>L
+			<h6>标题6</h6>
+
+			<!--换行-->
+			<br>
+
+			<!--水平线-->
+			<hr>
+
+			<!-- 可以通过CSS来控制，另起一行开始渲染的元素，行内元素则不需另起一行。单独在网页中插入这两个元素，不会对页面产生任何的影响； -->
+			<div>xxxx</div><!-- 块级元素 p、h1--h6、hr、div-->
+			<span>xxx</span><!-- 内联(行内)元素b、i、u、s -->
+			<hr>
+
+			图片
+			<!-- 网上的图片路径和本地的图片路径(本地路径又包括相对路径和绝对路径)
+"." -- 代表目前所在的目录，相对路径。 如：<a href="./abc">文本</a> 或 <img src="./abc" />
+".." -- 代表上一层目录，相对路径。 如：<a href="../abc">文本</a> 或 <img src="../abc" />
+"../../" -- 代表的是上一层目录的上一层目录，相对路径。 如：<img src="../../abc" />
+"/" -- 代表根目录,绝对路径。 如：<a href="/abc">文本</a> 或 <img src="/abc" />
+"D:/abc/" -- 代表根目录,绝对路径 -->
+			<img src="图片的路径" alt="图片未加载成功时的提示" title="鼠标悬浮时提示信息" width="宽" height="高(宽高两个属性只用一个会自动等比缩放)">
+
+			<hr>
+			超链接标签:
+			<!-- 指从一个网页指向一个目标的连接关系，这个目标可以是另一个网页，也可以是相同网页上的不同位置，还可以是一个图片，一个电子邮件地址，一个文件，甚至是一个应用程序。 
+		 target:
+　　_blank表示在新标签页中打开目标网页
+　　_self表示在当前标签页中打开目标网页
+
+href属性指定目标网页地址。该地址可以有几种类型：
+　　绝对URL - 指向另一个站点（比如 href="http://www.jd.com）
+　　相对URL - 指当前站点中确切的路径（href="index.htm"） #学django的时候会用的比较多
+　　锚URL - 指向页面中的锚（href="#top"），博客的目录经常用到，还可以跳转到 name属性为p1的a标签上，<a name='top'>xxx</a>-->
+			<a href="http://www.oldboyedu.com" target="_blank">点我</a>
+			<hr>
+			列表
+			无序列表
+			<!-- 1.无序列表 
+	type属性：
+　　disc（实心圆点，默认值）
+　　circle（空心圆圈）
+　　square（实心方块）
+　　none（无样式）-->
+			<ul type="disc">
+				<li>第一项</li>
+				<li>第二项</li>
+			</ul>
+
+			有序列表
+			<!-- 2.有序列表
+ type属性： start是从数字几开始
+ 
+ 　　1 数字列表，默认值
+ 　　A 大写字母
+ 　　a 小写字母
+ 　　Ⅰ大写罗马
+ 　　ⅰ小写罗马-->
+			<ol type="1" start="2">
+				<li>第一项</li>
+				<li>第二项</li>
+			</ol>
+
+
+			标题列表
+			<!-- 3.标题列表 -->
+			<dl>
+				<dt>标题1</dt>
+				<dd>内容1</dd>
+				<dt>标题2</dt>
+				<dd>内容1</dd>
+				<dd>内容2</dd>
+			</dl>
+			<hr>
+			表格
+			<!-- border: 表格边框.
+　　cellpadding: 内边距 （内边框和内容的距离）
+　　cellspacing: 外边距.（内外边框的距离）
+　　width: 像素 百分比.（最好通过css来设置长宽）
+　　rowspan: 单元格竖跨多少行
+　　colspan: 单元格横跨多少列（即合并单元格） -->
+			<table border="1">
+				<thead>
+					<!-- 标题部分 -->
+					<tr>
+						<!-- 表示一行 -->
+						<th>序号</th> <!-- 一个单元表格 -->
+						<th>姓名</th>
+						<th>爱好</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 内容部分 -->
+					<tr>
+						<td>1</td> <!-- 一个单元表格 -->
+						<td>老吊</td>
+						<td>炸团</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>老王</td>
+						<td>日天</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			input标签
+			<!-- input输入、单选、多选、文件上传、日期时间、下拉选项 -->
+			<div>
+				<!-- label for属性和id一样就关联在一起 点击获得光标-->
+				<label for="username">账户</label>
+				<!-- disabled放在form表单中提交后得不到该值
+            将disabled="disabled" 改为 readonly = "readonly"只读即可
+            -->
+				<input id="username" type="text" name="zh">
+			</div>
+			<div>
+				<!-- label另一种转到光标方法 -->
+				<label>密码
+					<!-- password不显示明文 -->
+					<input type="password" name="mm">
+				</label>
+			</div>
+			<div>
+				<label>头像
+					<input type="file" name="avatar">
+				</label>
+			</div>
+
+			<div>日期
+				<input type="date" name="date">
+			</div>
+			<p>时间
+				<input type="time" name="time">
+			</p>
+			<P>性别
+				<!-- type="radio"单选框 -->
+				<input type="radio" name="boy">男
+				<input type="radio" name="girl">女
+			</P>
+			<p>爱好
+				<!-- type="checkbox"复选框 checked设置默认选项-->
+				<input type="checkbox" name="hobby" checked value="girl">女
+				<input type="checkbox" name="hobby" value="boy">男
+				<input type="checkbox" name="hobby" value="baoj">宝剑
+				<input type="checkbox" name="hobby" value="dy">电影
+			</p>
+			<input type="submit" value="提交">
+			<input type="reset" value="重置">
+			<input type="button" value="普通按钮">
+			<input type="hidden" value="隐藏输入框">
+			<input type="file" name="文本框">
+			<hr>
+			<!-- select下拉选项 -->
+			<div>
+				<!-- <select name="city" id="city" multiple> 设置成多选-->
+				<select name="city" id="city">
+					<option value="1">北京</option>
+					<!-- selected="selected"设置成default-->
+					<option selected="selected" value="2">上海</option>
+					<option value="3">广州</option>
+					<option value="4">深圳</option>
+				</select>
+			</div>
+			<hr>
+			<!-- textarea 多行文本 rows行数 cols列数 disabled="disabled" 禁用-->
+			<textarea name="多行文本" rows="10px" cols="20px">
+            ...
+        </textarea>
+			</form>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="Vue实例">
+
+			<div id="app">
+				{{message}}<!-- {{}}声明变量 -->
+			</div>
+
+			<hr>
+
+			<div id="app-2">
+				<!-- 指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。 
+			将这个元素节点的 title attribute 和 Vue 实例的 message property 保持一致”。-->
+				<span v-bind:title="message">
+					鼠标悬停几秒钟查看此处动态绑定的提示信息！
+				</span>
+			</div>
+
+			<hr>
+
+			<!-- 演示了我们不仅可以把数据绑定到 DOM 文本或 attribute，还可以绑定到 DOM 结构 -->
+			<div id="app-3">
+				<p v-if="seen">现在你看到我了</p>
+			</div>
+
+			<hr>
+
+			<div id="app-4">
+				<ol>
+					<!--有序列表 -->
+					<!-- <li v-for="todo in todos">
+				 v-for="循环体 in 数据"-->
+					<li v-for="todo in todos">
+						{{todo.text}}
+					</li>
+				</ol>
+			</div>
+
+			<hr>
+
+			<div id="app-5">
+				<p>{{message}}</p>
+				<button v-on:click="reverseMessage">反转消息</button>
+			</div>
+
+			<hr>
+
+			<div id="app-6">
+				<ol>
+					<!--
+      现在我们为每个 todo-item 提供 todo 对象
+      todo 对象是变量，即其内容可以是动态的。
+      我们也需要为每个组件提供一个“key”，稍后再
+      作详细解释。-->
+					<todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+				</ol>
+			</div>
+
+			<hr>
+
+			<div id="app-7">
+				{{message}}
+			</div>
+
+			<hr>
+
+			<span id="app-8" v-once>
+				这个将不会改变: {{ vonceNotchange }}<br />
+
+				<!-- 原始 HTML -->
+				<p>Using mustaches: {{ vonceNotchange }}</p>
+				<p>Using v-html directive: <span v-html="vonceNotchange">hahhaha</span></p>
+
+				<!-- Attribute -->
+				<div v-bind:id="attri"></div>
+				<button v-bind:disabled="isButtonDisabled">Button</button>
+				<!--  JavaScript 表达式,每个绑定都只能包含单个表达式 -->
+				{{ vonceNotchange + 1 }}
+				{{ isButtonDisabled ? 'YES' : 'NO' }}
+				{{ sp.split('').reverse().join('') }}
+				<!-- <div v-bind:id="'list-' + id"></div> -->
+			</span>
+
+			<!-- 组件使用 -->
+			<div id="comptest">
+				<comp></comp>
+				<comp></comp>
+			</div>
+
+			<hr>
+
+			<div id="app-9">
+
+				<p>{{message+'新添的消息'}}</p>
+				<input v-model="message">
+			</div>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="mobanyufa">
+			<div id="动态参数">
+				<a v-bind:href="url">...</a>
+				<a v-on:click="doSomething">...</a>
+				<!--
+注意，参数表达式的写法存在一些约束，如之后的“对动态参数表达式的约束”章节所述。
+-->
+				<a v-bind:[attributeName]="url"> ... </a>
+				<a v-on:[eventName]="doSomething"> ... </a>
+			</div>
+
+			<hr>
+			<!-- v-bind 缩写
+完整语法 -->
+			<a v-bind:href="url">...</a>
+			<!-- 缩写 -->
+			<a :href="url">...</a>
+			<!-- 动态参数的缩写 (2.6.0+) -->
+			<a :[key]="url"> ... </a>
+
+			<hr>
+
+			<!--v-on 缩写
+ 完整语法 -->
+			<a v-on:click="doSomething">...</a>
+			<!-- 缩写 -->
+			<a @click="doSomething">...</a>
+			<!-- 动态参数的缩写 (2.6.0+) -->
+			<a @[event]="doSomething"> ... </a>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="jisuanshuxing">
+			<hr>
+			<!-- 对于任何复杂逻辑，你都应当使用计算属性 -->
+			<div id="computedExample">
+				<p>原始数据："{{message}}"</p>
+				<p>计算属性后数据："{{reversedMessage}}"</p>
+				<!-- 计算属性是基于它们的响应式依赖进行缓存的,调用方法将总会再次执行函数。 -->
+				<p>方法数据: "{{ reversedMessagemethosds() }}"</p>
+			</div>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="classstylebind">
+			类绑定 <br>
+			<div id="classbind" class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">类绑定成功蓝色，失败红色</div>
+			<!-- <div class="static active"></div>  层级关系，调用方式.static.active-->
+			<!-- 渲染的结果和上面一样。我们也可以在这里绑定一个返回对象的计算属性。这是一个常用且强大的模式：
+<div v-bind:class="classObject"></div>
+data: {
+  isActive: true,
+  error: null
+},
+computed: {
+  classObject: function () {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal'
+    }
+  }
+} -->
+			<!-- 数组绑定-->
+			<div id="shuzubind" v-bind:class="[activeClass, errorClass]">数组绑定成功为蓝色，失败黑色</div>
+
+
+			<!-- 组件绑定,元素上已经存在的 class 不会被覆盖 HTML 将被渲染为：<p class="foo bar baz boo">Hi</p>-->
+
+			<mycomponent id="zujianbind" class="baz"></mycomponent>
+
+
+			<!-- 绑定内联样式 -->
+			<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+			<hr>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="渲染">
+
+			条件渲染 <br>
+
+
+			<div id="condition">
+				<template v-if="type === 'A'">
+					<h1>Title</h1>
+					<p>Paragraph 1</p>
+					<p>Paragraph 2</p>
+				</template>
+				<div v-if="type === 'B'">
+					v-if😢
+				</div>
+				<div v-else-if="type === 'C'">
+					v-else-if😢
+				</div>
+				<div v-else>
+					v-else😢
+				</div>
+
+				<!-- 加一个具有唯一值的 key attribute ，表示两个元素是独立的 -->
+				<template v-if="loginType === 'username'">
+					<label>Username</label>
+					<input placeholder="Enter your username" key="username-input">
+				</template>
+				<template v-else>
+					<label>Email</label>
+					<input placeholder="Enter your email address" key="email-input">
+				</template>
+				<!-- 始终会被渲染并保留在 DOM 中。v-show 只是简单地切换元素的 CSS property display ，v-show 不支持 <template> 元素，也不支持 v-else-->
+				<h1 v-show="ok">Hello!</h1>
+
+			</div>
+
+			<hr>
+
+			<!--列表渲染 -->
+
+			<ul id="listrender">
+				<!-- item of items同，index当前项的索引 -->
+				<li v-for="(item, index) in items" :key="item.message">
+					{{parentMessage}}-{{item.message}}-{{index}}
+				</li>
+				<!-- 在遍历对象时，会按 Object.keys() 的结果遍历，但是不能保证它的结果在不同的 JavaScript 引擎下都一致。 -->
+				<li v-for="(value, name, index) in object">
+					{{ index }}. {{ name }}: {{ value }}
+				</li>
+			</ul>
+			<!-- v-for 渲染元素列表，默认使用“就地更新”策略。数据项顺序改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是就地更新每个元素，并且确保它们在每个索引位置正确渲染。只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出 -->
+			<!-- key
+ 为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key attribute不要使用对象或数组之类的非基本类型值作为 v-for 的 key。请用字符串或数值类型的值。-->
+			<hr>
+			<!-- 数组更新检测 -->
+			<!-- 变更方法
+push()
+pop()
+shift()
+unshift()
+splice()
+sort()
+reverse() 变更调用了这些方法的原始数组
+替换数组filter()、concat() 和 slice()。它们不会变更原始数组，而总是返回一个新数组。当使用非变更方法时，可以用新数组替换旧数组：-->
+
+			<!-- 显示过滤/排序后的结果 -->
+			<!-- 在 v-for 里使用值范围 -->
+			<div>
+				<span v-for="n in 10">{{ n }} </span>
+			</div>
+			<!-- 在 <template> 上使用 v-for -->
+			<ul>
+				<template v-for="item in items">
+					<li>{{ item.msg }}</li>
+					<li class="divider" role="presentation"></li>
+				</template>
+			</ul>
+			<hr>
+			<!-- v-for 与 v-if 一同使用[不推荐] 
+当它们处于同一节点，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。当你只想为部分项渲染节点时，这种优先级的机制会十分有用，如下：
+<li v-for="todo in todos" v-if="!todo.isComplete">
+  {{ todo }}
+</li>
+上面的代码将只渲染未完成的 todo。而如果你的目的是有条件地跳过循环的执行，那么可以将 v-if 置于外层元素 (或 <template>) 上。如：
+<ul v-if="todos.length">
+  <li v-for="todo in todos">
+    {{ todo }}
+  </li>
+</ul>
+<p v-else>No todos left!</p>-->
+			<!-- 在组件上使用 v-for -->
+
+			<hr>
+			<hr>
+			<hr>
+			<hr>
+
+			<div id="todo-list-example">《无效》
+				<form v-on:submit.prevent="addNewTodo">
+					<label for="new-todo">Add a todo</label>
+					<input v-model="newTodoText" id="new-todo" placeholder="E.g. Feed the cat">
+					<button>Add</button>
+				</form>
+				<ul>
+					<li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" v-on:remove="todos.splice(index, 1)"></li>
+				</ul>
+			</div>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="事件处理">
+			事件处理 <br>
+			监听事件<br>
+			<div id="lisenevent">《无效》
+				<button v-on:click="counter += 1">Add 1</button>
+				<p>The button above has been clicked {{ counter }} times.</p>
+				<!-- 然而许多事件处理逻辑会更为复杂，所以直接把 JavaScript 代码写在 v-on 指令中是不可行的 -->
+				<!-- `greet` 是在下面定义的方法名 -->
+				<button v-on:click="greet">Greet</button>
+				<!-- 除了直接绑定到一个方法，也可以在内联 JavaScript 语句中调用方法-->
+				<button v-on:click="say('hi')">Say hi</button>
+				<button v-on:click="say('what')">Say what</button>
+				<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+					Submit
+				</button>
+			</div>
+
+			<hr>事件修饰符
+
+			<a v-on:click.stop="doThis">.stop="doThis" 阻止单击事件继续传播</a>
+			<form v-on:submit.prevent="onSubmit">.prevent="onSubmit"提交事件不再重载页面</form>
+			<a v-on:click.stop.prevent="doThat">.stop.prevent="doThat"修饰符可以串联</a>
+			<form v-on:submit.prevent>只有修饰符.prevent</form>
+			<div v-on:click.capture="doThis">.capture="doThis"添加事件监听器时使用事件捕获模式，即内部元素触发的事件先在此处理，然后才交由内部元素进行处理</div>
+			<div v-on:click.self="doThat">.self="doThat"只当在 event.target 是当前元素自身时触发处理函数 即事件不是从内部元素触发的</div>
+			<a v-on:click.once="doThis">.once="doThis"2.1.4 新增点击事件将只会触发一次</a>
+			<div v-on:scroll.passive="onScroll">.passive="onScroll"2.3.0 新增Vue 还对应 addEventListener 中的 passive 选项提供了 .passive
+				修饰符。
+				滚动事件的默认行为 (即滚动行为) 将会立即触发 而不会等待 `onScroll` 完成，这其中包含 `event.preventDefault()` 的情况</div><!-- /* 事件修饰符event.preventDefault()  event.stopPropagation()，但更好的方式是：方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。能够提升移动端的性能。不要把 .passive 和 .prevent 一起使用，因为 .prevent 将会被忽略，同时浏览器可能会向你展示一个警告。请记住，.passive 会告诉浏览器你不想阻止事件的默认行为。*/ -->
+			<hr>按键修饰符
+
+			<!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
+			<input v-on:keyup.enter="submit">
+			<input v-on:keyup.page-down="onPageDown">
+			<!-- keyCode 的事件用法已经被废弃了并可能不会被最新的浏览器支持。为了在必要的情况下支持旧浏览器，Vue 提供了绝大多数常用的按键码的别名：
+.enter
+.tab
+.delete (捕获“删除”和“退格”键)
+.esc
+.space
+.up
+.down
+.left
+.right 还可以通过全局 config.keyCodes 对象自定义按键修饰符别名：
+// 可以使用 `v-on:keyup.f1`
+Vue.config.keyCodes.f1 = 112-->
+			<input v-on:keyup.13="submit">
+
+			<hr>系统修饰键
+
+			<!-- 2.1.0 新增
+
+可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
+.ctrl
+.alt
+.shift
+.meta
+注意：在 Mac 系统键盘上，meta 对应 command 键 (⌘)。在 Windows 系统键盘 meta 对应 Windows 徽标键 (⊞)。在 Sun 操作系统键盘上，meta 对应实心宝石键 (◆)。在其他特定键盘上，尤其在 MIT 和 Lisp 机器的键盘、以及其后继产品，比如 Knight 键盘、space-cadet 键盘，meta 被标记为“META”。在 Symbolics 键盘上，meta 被标记为“META”或者“Meta”。 -->
+			<!-- 2.5.0 新增.exact 修饰符允许你控制由精确的系统修饰符组合触发的事件。-->
+
+			<!-- 即使 Alt 或 Shift 被一同按下时也会触发 -->
+			<button v-on:click.ctrl="onClick">A</button>
+
+			<!-- 有且只有 Ctrl 被按下的时候才触发 -->
+			<button v-on:click.ctrl.exact="onCtrlClick">A</button>
+
+			<!-- 没有任何系统修饰符被按下的时候才触发 -->
+			<button v-on:click.exact="onClick">A</button>
+
+			<!-- 鼠标按钮修饰符
+2.2.0 新增
+.left
+.right
+.middle -->
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="表单输入绑定">
+
+			<div id="formbind">
+				表单输入绑定<br />
+				文本
+				<input v-model="message" placeholder="edit me">
+				<p>Message is: {{ message }}</p><br />
+				多行文本
+				<span>Multiline message is:</span>
+				<p style="white-space: pre-line;">{{ message }}</p>
+				<br>
+				<textarea v-model="message" placeholder="add multiple lines"></textarea><br />
+				复选框<br />
+				单个复选框，绑定到布尔值：
+				<input type="checkbox" id="checkbox" v-model="checked">
+				<label for="checkbox">{{ checked }}</label><br />
+				多个复选框，绑定到同一个数组：
+				<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+				<label for="jack">Jack</label>
+				<input type="checkbox" id="john" value="John" v-model="checkedNames">
+				<label for="john">John</label>
+				<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+				<label for="mike">Mike</label>
+				<br>
+				<span>Checked names: {{ checkedNames }}</span>
+				<br />
+				单选按钮
+				<input type="radio" id="one" value="One" v-model="picked">
+				<label for="one">One</label>
+				<input type="radio" id="two" value="Two" v-model="picked">
+				<label for="two">Two</label>
+				<span>Picked: {{ picked }}</span>
+				<br />选择框
+				单选时：
+				<select v-model="selected">
+					<option disabled value="">请选择</option>
+					<option>A</option>
+					<option>B</option>
+					<option>C</option>
+				</select>
+				<span>Selected: {{ selected }}</span>
+				<br />多选时 (绑定到一个数组)：<br />
+				<select v-model="selected" multiple style="width: 50px;">
+					<option>A</option>
+					<option>B</option>
+					<option>C</option>
+				</select>
+				<br>
+				<span>Selected: {{ selected }}</span><br>
+				用 v-for 渲染的动态选项：
+				<select v-model="selected">
+					<option v-for="option in options" v-bind:value="option.value">
+						{{ option.text }}
+					</option>
+				</select>
+				<span>Selected: {{ selected }}</span><br>
+
+				值绑定<br /> 对于单选按钮，复选框及选择框的选项，v-model 绑定的值通常是静态字符串 (对于复选框也可以是布尔值)：
+
+				<!-- 当选中时，`picked` 为字符串 "a" -->
+				<input type="radio" v-model="picked" value="a">
+
+				<!-- `toggle` 为 true 或 false -->
+				<input type="checkbox" v-model="toggle">
+
+				<!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+				<select v-model="selected">
+					<option value="abc">ABC</option>
+				</select><br>
+				但是有时我们可能想把值绑定到 Vue 实例的一个动态 property 上，这时可以用 v-bind 实现，并且这个 property 的值可以不是字符串。
+				复选框
+				<input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+				单选按钮
+				<input type="radio" v-model="pick" v-bind:value="a">
+				选择框的选项
+				<select v-model="selected">
+					<!-- 内联对象字面量 -->
+					<option v-bind:value="{ number: 123 }">123</option>
+				</select><br>
+				修饰符<br>.lazy默认，v-model 在每次 input 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。可添加 lazy 修饰符，转为在 change 事件_之后_进行同步：
+				<!-- 在“change”时而非“input”时更新 -->
+				<input v-model.lazy="msg"><br>
+				.number
+				如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符：
+				<input v-model.number="age" type="number"><br>
+				.trim
+				如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符：
+				<input v-model.trim="msg">
+			</div>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="elementbase">
+			组件基础<br>
+			<div id="element">
+				<button-counter title="My title"></button-counter>可复用
+				<button-counter></button-counter>
+			</div>
+			
+			<div id="prop">
+				<blog-post title="My journey with Vue"></blog-post>
+				<blog-post title="Blogging with Vue"></blog-post>
+				<blog-post title="Why Vue is so fun"></blog-post>
+				<!-- 数组方式，但是属性很多会复杂起来 -->
+				<blog-post
+				  v-for="post in posts"
+				  v-bind:key="post.id"
+				  v-bi
+				  nd:title="post.title"
+				></blog-post>
+				</div>
+					<!-- 让内容成为单个post，就不用把每个标题列出来-->
+			<div id="prop1" >
+				<div :style="{ fontSize: postFontSize + 'em' }">
+				<blog-post
+				  v-for="post in posts"
+				  v-bind:key="post.id"			
+				  v-bind:post="post" 
+				  v-on:enlarge-text="postFontSize += 0.1"
+				></blog-post>
+			</div>
+			</div>
+			<div id="lisenchildelementevent">
+				
+			</div>
+<div id="slot">
+	<alert-box>
+	</alert-box>
+</div>
+<div id="dynamiccomponents">
+	
+</div>
+		</div>
+		<hr>
+		<hr>
+		<hr>
+		<div id="transition">
+		
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+	<script type="text/javascript">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/* kebab-case 组件名横线风格要求一样 ,PascalCase 首字母大写，可用ke。
+		
+		0bab-case引用*/
+	Vue.component('alert-box', {
+	  template: `
+	    <div class="demo-alert-box">
+	      <strong>Error!</strong>
+	      <slot></slot>
+	    </div>
+	  `
+	})
+	new Vue({
+		el:'#slot'
+	})
+		
+		
+		Vue.component('blog-post', {
+		  props: ['post'],
+		  template: `
+		    <div class="blog-post">
+		      <h3>{{ post.title }}</h3>
+			  <button v-on:click="$emit('enlarge-text')">
+			          Enlarge text
+			   </button>
+		      <div v-html="post.content"></div>
+		    </div>
+		  `
+		})
+		
+		new Vue({
+			el:'#prop1',
+			data: {
+			   posts: [
+			     { id: 1, title: 'My journey with Vue' },
+			     { id: 2, title: 'Blogging with Vue' },
+			     { id: 3, title: 'Why Vue is so fun' }
+			   ],
+			   postFontSize: 1
+			 }
+		})
+		
+		Vue.component('blog-post', {
+			props: ['title'],
+			template: 
+			'<h3>{{ title }}</h3>'
+		})
+		/* 注册在组建之后 */
+		new Vue({
+			el: '#prop',
+			 data: {
+			    posts: [
+			      { id: 1, title: 'My journey with Vue' },
+			      { id: 2, title: 'Blogging with Vue' },
+			      { id: 3, title: 'Why Vue is so fun' }
+			    ]
+			  }
+		})
+
+	// 定义一个名为 button-counter 的新组件
+		Vue.component('button-counter', {
+			// 一个组件的 data 选项必须是一个函数	
+
+			data: function() {
+				return {
+					count: 0,
+				}
+			},
+			props: ['title'],
+			/* 好像只对第一个标签有用。使用`多行，使用'单行*/
+			template:`
+			<button v-on:click="count++">You clicked me {{ count }} times.</button>
+		<h3>{{ title }}</h3>
+			`
+
+		})
+
+		var app18 = new Vue({
+			el: '#element'
+		})
+
+
+		var app17 = new Vue({
+			el: "#formbind",
+			data: {
+				checkedNames: [],
+				checked: false,
+				picked: '',
+				selected: 'A',
+				options: [{
+						text: 'One',
+						value: 'A'
+					},
+					{
+						text: 'Two',
+						value: 'B'
+					},
+					{
+						text: 'Three',
+						value: 'C'
+					}
+				]
+			}
+		})
+
+
+		var app16 = new Vue({
+			el: "#lisenevent",
+			data: {
+				counter: 0,
+				name: 'Vue.js'
+			},
+			// 在 `methods` 对象中定义方法
+			methods: {
+				greet: function(event) {
+					// `this` 在方法里指向当前 Vue 实例
+					alert('Hello ' + this.name + '!')
+					// `event` 是原生 DOM 事件
+					if (event) {
+						alert(event.target.tagName)
+					}
+				},
+				say: function(message) {
+					alert(message)
+				},
+				warn: function(message, event) {
+					// 现在我们可以访问原生事件对象
+					if (event) {
+						event.preventDefault()
+					}
+					alert(message)
+				}
+			}
+		})
+
+
+		Vue.component('todo-item', {
+			template: '\
+		    <li>\
+		      {{ title }}\
+		      <button v-on:click="$emit(\'remove\')">Remove</button>\
+		    </li>\
+		  ',
+			props: ['title']
+		})
+
+		new Vue({
+			el: '#todo-list-example',
+			data: {
+				newTodoText: '',
+				todos: [{
+						id: 1,
+						title: 'Do the dishes',
+					},
+					{
+						id: 2,
+						title: 'Take out the trash',
+					},
+					{
+						id: 3,
+						title: 'Mow the lawn'
+					}
+				],
+				nextTodoId: 4
+			},
+			methods: {
+				addNewTodo: function() {
+					this.todos.push({
+						id: this.nextTodoId++,
+						title: this.newTodoText
+					})
+					this.newTodoText = ''
+				}
+			}
+		})
+
+		var app15 = new Vue({
+			el: '#listrender',
+			data: {
+				parentMessage: 'Parent',
+				items: [{
+						message: 'lxl'
+					},
+					{
+						message: 'handsome!'
+					}
+				],
+				object: {
+					title: 'How to do lists Object in Vue',
+					author: 'lxl',
+					publishedAt: '2020-11-6'
+				}
+			}
+		})
+
+
+		var app14 = new Vue({
+			el: 'condition',
+			data: {
+				type: 'A',
+				loginType: 'username'
+			}
+		})
+
+
+
+		Vue.component('mycomponent', {
+			template: '<p class="foo">组件绑定蓝色成功</p>'
+		})
+		/* 组件在实例化之前才有效 */
+		var app13 = new Vue({
+			el: '#zujianbind'
+		})
+
+
+
+		var app12 = new Vue({
+			el: '#shuzubind',
+			data: {
+				activeClass: 'act',
+				errorClass: 'textdanger'
+			}
+		})
+
+
+		var app11 = new Vue({
+			el: '#classbind',
+			data: {
+				isActive: true,
+				hasError: false,
+				activeClass: 'act',
+				errorClass: 'textdanger'
+			}
+		})
+
+		/*计算属性 ，计算属性是基于它们的响应式依赖进行 缓存 的*/
+		var app10 = new Vue({
+			el: "#computedExample",
+			data: {
+				message: "Hello"
+			},
+			computed: {
+				// 计算属性的 getter
+				reversedMessage: function() {
+					// `this` 指向 vm 实例
+					return this.message.split('').reverse('').join('')
+				}
+			},
+			methods: {
+				reversedMessagemethosds: function() {
+					return Date.now()
+				}
+			}
+		})
+
+
+		var app9 = new Vue({
+			el: '#app-9',
+			data: {
+				message: 'Hello Vue!'
+			}
+		})
+
+
+		var app8 = new Vue({
+			el: '#app-8',
+			data: {
+				vonceNotchange: '<span style="color:red">This should be red</span>',
+				isButtonDisabled: true,
+				attri: 1,
+				sp: "dwd wd www"
+			}
+		})
+		app8.vonceNotchange = 2
+
+
+		//数据与方法
+		var data = {
+			message: 1
+		}
+
+
+		var app7 = new Vue({
+			el: '#app-7',
+			data: data,
+			// created 钩子函数可以用来在一个实例被创建之后执行代码：
+			created: function() {
+				// `this` 指向 vm 实例
+				console.log('a is: ' + this.message)
+			}
+		})
+		Object.freeze(app7) /* 阻止修改 */
+
+		app7.message = 212122 //修改原数据,前缀 $，以便与用户定义的 property 区分开来
+
+
+		/* $watch 是一个实例方法,查看对象变化 */
+		app7.$watch('message', function(newValue, oldValue) {})
+
+
+
+		//组件
+
+		/*组件相当于标签，必须Vue中注册使用 */
+		Vue.component('comp', {
+			template: '<p>我是组件</p>'
+		})
+		var components = new Vue({
+			el: '#comptest'
+
+		})
+
+
+		Vue.component('todo-item', {
+			// todo-item 组件现在接受一个
+			// "prop"，类似于一个自定义 attribute。
+			// 这个 prop 名为 todo。
+			props: ['todo'],
+			template: '<li>{{ todo.text }}</li>'
+		})
+		var app6 = new Vue({
+			el: '#app-6',
+			data: {
+				groceryList: [{
+						id: 0,
+						text: '蔬菜'
+					},
+					{
+						id: 1,
+						text: '奶酪'
+					},
+					{
+						id: 2,
+						text: '随便其它什么人吃的东西'
+					}
+				]
+			}
+		})
+
+
+
+
+
+		var app5 = new Vue({
+			el: '#app-5',
+			data: {
+				message: 'Hello Vue.js'
+			},
+			methods: {
+				reverseMessage: function() {
+					this.message = this.message.split('').reverse().join('')
+				}
+			}
+		})
+
+		var app4 = new Vue({
+			el: '#app-4',
+			data: {
+				todos: [{
+						text: '学习 Javascript'
+					},
+					{
+						text: '学习 Vue'
+					},
+					{
+						text: '成为大佬'
+					}
+				],
+			}
+		})
+
+		var app3 = new Vue({ //new Vue({})
+			el: '#app-3', //id element元素
+			data: { //data{}保存数据,视图变量注册初始化
+				seen: true //数据
+			}
+		})
+
+		var app2 = new Vue({
+			el: '#app-2',
+			data: {
+				message: '页面加载于' + new Date().toLocaleString()
+			}
+		})
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue!'
+			}
+		})
+	</script>
+</html>
