@@ -9,6 +9,17 @@
 </template>
 
 <script>
+// html中用new Vue形式
+// Vue文件中用export default 形式
+// var app8 = new Vue({
+		// 	el: '#app-8',
+		// 	data: {
+		// 		vonceNotchange: '<span style="color:red">This should be red</span>',
+		// 		isButtonDisabled: true,
+		// 		attri: 1,
+		// 		sp: "dwd wd www"
+		// 	}
+		// })
     export default {
         name: 'App',
         data() {
@@ -28,4 +39,4 @@
     margin: 0px;
     padding: 0px;
   }
-</style>
+</style> 

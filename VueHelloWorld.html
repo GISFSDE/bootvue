@@ -231,14 +231,19 @@ href属性指定目标网页地址。该地址可以有几种类型：
 		<div id="Vue实例">
 
 			<div id="app">
-				{{message}}<!-- {{}}声明变量 -->
+				{{message}}
+				<!-- {{}}声明变量
+				成为Mustache语法，文本插值
+			{{里面可单个运算，四目运算等js单个表达式}} -->
 			</div>
 
 			<hr>
 
 			<div id="app-2">
 				<!-- 指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。 
-			将这个元素节点的 title attribute 和 Vue 实例的 message property 保持一致”。-->
+			将这个元素节点的 title attribute 和 Vue 实例的 message property 保持一致”。
+			指令冒号后的叫参数，一个指令能够接受一个参数
+			参数后点叫修饰符-->
 				<span v-bind:title="message">
 					鼠标悬停几秒钟查看此处动态绑定的提示信息！
 				</span>
@@ -343,6 +348,7 @@ href属性指定目标网页地址。该地址可以有几种类型：
 			<a v-bind:href="url">...</a>
 			<!-- 缩写 -->
 			<a :href="url">...</a>
+			
 			<!-- 动态参数的缩写 (2.6.0+) -->
 			<a :[key]="url"> ... </a>
 
@@ -736,6 +742,25 @@ Vue.config.keyCodes.f1 = 112-->
 		</div>
 
 
+<style>
+	.static{
+		color: white;
+	}
+	.style1{
+		background-color: black;
+	}
+	.style2{width: 200px;
+	height: 100px;}
+</style>
+<div id="app-10">
+<div class="static" v-bind:class="['style1','style2']">{{message}}</div>
+</div>
+
+
+
+
+
+
 
 
 
@@ -750,16 +775,30 @@ Vue.config.keyCodes.f1 = 112-->
 	</body>
 	<script type="text/javascript">
 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		new Vue({
+			el:'#app-10',
+			data:{
+				message:"绑定html样式数组语法"
+			}
+		})
 		
 		
 		
