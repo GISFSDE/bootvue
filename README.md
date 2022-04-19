@@ -1,7 +1,7 @@
 # bootvue
 
 > A Vue.js project
->后端地址   https://github.com/MrDemonlxl/springbootvue.git
+>后端地址   https://github.com/MrDemonlxl/springboot.git
 
 ## Build Setup
 
