@@ -5,6 +5,18 @@
         <router-view/>
       </el-col>
     </el-row>
+     <div>
+<!-- //router-link定义页面中点击触发部分　　 -->
+      <router-link to="/page1">Page1</router-link>
+      <router-link to="/page2">Page2</router-link>
+    </div>
+    <!-- //添加两个router-link标签 -->
+    <div>
+      <router-link to="/user/xianyu">动态路由咸鱼</router-link>
+      <router-link to="/user/mengxiang">动态路由梦想</router-link>
+    </div>
+<!-- //router-view定义页面中显示部分 -->
+    <router-view></router-view>
   </div>
 </template>
 
